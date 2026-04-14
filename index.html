@@ -1,65 +1,193 @@
-# 🐈‍⬛ BCT Eco Sphere (Black Cat Token)
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCT Eco Sphere | Build-to-Earn Ecosystem Portfolio</title>
+    <style>
+        :root {
+            --bg: #050810;
+            --card-bg: #0f172a;
+            --primary: #38bdf8;
+            --accent: #818cf8;
+            --text: #f1f5f9;
+            --text-dim: #94a3b8;
+        }
 
-Добро пожаловать в официальный репозиторий **BCT Eco Sphere**. Наша цель — создание прозрачной и масштабируемой цифровой экосистемы на базе блокчейна TON, где каждый участник вознаграждается за свой реальный вклад через экономическую модель **Build-to-Earn**.
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
 
----
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
 
-## 🪂 BCT Airdrop: Твой старт в экосистеме
+        header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
 
-Мы ценим наших ранних сторонников и активных контрибьюторов. Программа Airdrop разработана таким образом, чтобы справедливо распределить токены BCT среди тех, кто помогает экосистеме расти и развиваться.
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
 
-### Как принять участие:
-1. **Подключите кошелек:** Убедитесь, что у вас есть кошелек, поддерживающий сеть TON (например, Tonkeeper).
-2. **Build-to-Earn активности:** * Участие в тестировании интеграционных продуктов экосистемы.
-   * Контрибьюции в открытый исходный код или помощь в улучшении документации.
-   * Активное участие в верификации и расширении сообщества.
-3. **Клейм токенов:** Подробные инструкции по клейму BCT и смарт-контракту распределения будут опубликованы на этой странице ближе к дате TGE (Token Generation Event).
+        .tagline { color: var(--text-dim); font-size: 1.3rem; }
 
-*Примечание: Мы внимательно следим за качеством аудитории. Системы защиты от сибилов (Sybil-resistance) будут активно применяться для отсеивания ботов.*
+        /* Общие стили секций */
+        .section-header {
+            border-left: 5px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 40px;
+            margin-top: 80px;
+        }
+        
+        .section-header h2 { color: var(--primary); margin: 0; font-size: 2.2rem; }
 
----
+        /* Стиль карточек и галерей */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid #1e293b;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
 
-## 🗺 Планы развития (Roadmap)
+        .screenshot-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
 
-Развитие BCT Eco Sphere сфокусировано на устойчивом росте, интеграции передовых аналитических инструментов и полной децентрализации. 
+        .screenshot-item {
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #334155;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
 
-### Phase 1: Фундамент и Верификация (Текущий этап)
-- [x] Создание и развертывание смарт-контракта BCT в сети TON.
-- [x] Подача пулл-реквестов в официальные репозитории TON Assets для верификации токена.
-- [ ] Запуск программы раннего Airdrop для первых участников сообщества.
+        .screenshot-item:hover {
+            transform: scale(1.03);
+            border-color: var(--primary);
+        }
 
-### Phase 2: Расширение цифровой среды
-- [ ] Релиз платформы Build-to-Earn: автоматизация начисления наград за полезные действия.
-- [ ] Интеграция передовых аналитических фреймворков (включая многоуровневый системный анализ пользователей).
-- [ ] Партнерства с другими проектами и Mini Apps в экосистеме Telegram/TON.
+        .screenshot-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .screenshot-item:hover img { opacity: 1; }
 
-### Phase 3: Автономизация и Масштабирование
-- [ ] Запуск децентрализованных автономных агентов для управления процессами внутри экосистемы.
-- [ ] Выход на DEX (Ston.fi, DeDust) с обеспечением необходимой ликвидности.
-- [ ] Формирование DAO для управления вектором развития BCT Eco Sphere силами холдеров.
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--bg);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: opacity 0.2s;
+        }
 
----
+        .btn:hover { opacity: 0.9; }
 
-## 🔒 Политика безопасности (Security Policy)
+        footer {
+            text-align: center;
+            padding: 50px;
+            color: var(--text-dim);
+            border-top: 1px solid #1e293b;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
 
-Безопасность пользователей, защита данных и надежность смарт-контрактов — абсолютные приоритеты BCT Eco Sphere. Мы придерживаемся принципов открытого кода и максимальной прозрачности.
+<div class="container">
+    <header>
+        <h1>🐈‍⬛ BCT Eco Sphere</h1>
+        <p class="tagline">Децентрализованная экосистема будущего на базе TON</p>
+    </header>
 
-### Смарт-контракты
-* Все контракты экосистемы разрабатываются с учетом best practices блокчейна TON.
-* Код контрактов открыт для публичного ревью (см. директорию `/contracts` в этом репозитории).
-* Мы планируем проведение независимых аудитов безопасности перед запуском критически важных DeFi-механик.
+    <div class="section-header">
+        <h2>🪂 BCT Airdrop & Build-to-Earn</h2>
+    </div>
+    <div class="card" style="border: 2px solid var(--accent);">
+        <p>Мы запускаем масштабное распределение токенов <strong>BCT</strong> для активных участников и разработчиков. Помогай развивать экосистему и получай вознаграждение. Ниже показаны этапы нашего Airdrop-процесса.</p>
+        
+        <div class="screenshot-gallery">
+            <div class="screenshot-item">
+                <img src="airdrop.jpg" alt="Airdrop Step 1">
+            </div>
+            <div class="screenshot-item">
+                <img src="airdrop2.jpg" alt="Airdrop Step 2">
+            </div>
+            <div class="screenshot-item">
+                <img src="airdrop3.jpg" alt="Airdrop Step 3">
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="#" class="btn">Присоединиться к Build-to-Earn</a>
+        </div>
+    </div>
 
-### Конфиденциальность данных
-* **Автономность:** Мы минимизируем сбор пользовательских данных. Аналитика и вычислительные процессы по возможности переносятся на сторону клиента или децентрализованные ноды.
-* **Web3 Авторизация:** Взаимодействие с ядром экосистемы происходит исключительно через криптографические подписи (TON Connect), без необходимости передавать нам ваши личные (Web2) данные.
+    <div class="section-header">
+        <h2>📊 Deep Analytics Tools</h2>
+    </div>
+    <div class="card">
+        <p>Наши инструменты для многоуровневого системного анализа (AQAL Analyzer). Мы создаем аналитические фреймворки для глубокого понимания пользовательских данных.</p>
+        
+        <div class="screenshot-gallery">
+            <div class="screenshot-item">
+                <img src="anaiz.jpg" alt="Analytics Dashboard">
+            </div>
+            <div class="screenshot-item">
+                <img src="analiz2.jpg" alt="AQAL Model">
+            </div>
+            <div class="screenshot-item">
+                <img src="analiz3.jpg" alt="Data View">
+            </div>
+        </div>
+        <div style="margin-top: 20px;">
+            <a href="https://project-zeta-two-73.vercel.app" class="btn" style="background: transparent; border: 1px solid var(--primary); color: var(--primary);" target="_blank">Открыть AQAL Analyzer</a>
+        </div>
+    </div>
 
-### Сообщение об уязвимостях (Bug Bounty)
-Если вы обнаружили уязвимость в нашем коде, смарт-контрактах или веб-интерфейсах, пожалуйста, не раскрывайте её публично. 
-Свяжитесь с командой разработчиков напрямую:
-* **Email:** [Твой Email для безопасности]
-* **Telegram:** [Контакт для связи]
+    <div class="section-header">
+        <h2>💻 Matrix Systems: Productivity Tools</h2>
+    </div>
+    <div class="card">
+        <p>Custom software development. Наш пример софта для заметок и управления информацией в стиле Матрицы. Демонстрация Full-stack возможностей.</p>
+        
+        <div class="screenshot-gallery" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            <div class="screenshot-item"><img src="matrix.jpg" alt="Matrix Note Main"></div>
+            <div class="screenshot-item"><img src="matrix2.jpg" alt="Matrix View 2"></div>
+            <div class="screenshot-item"><img src="matrix3.jpg" alt="Matrix View 3"></div>
+            <div class="screenshot-item"><img src="matrix4.jpg" alt="Matrix View 4"></div>
+            <div class="screenshot-item"><img src="matrix5.jpg" alt="Matrix View 5"></div>
+        </div>
+    </div>
 
-Мы гарантируем справедливое вознаграждение в токенах BCT за подтвержденные критические баги.
+    <footer>
+        <p>© 2026 BCT Eco Sphere. Built for the TON community.</p>
+    </footer>
+</div>
 
----
-*BCT Eco Sphere — Строим будущее вместе.*
+</body>
+</html>

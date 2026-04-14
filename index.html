@@ -3,117 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BCT Eco Sphere | Build-to-Earn Ecosystem Portfolio</title>
+    <title>BCT Eco Sphere | Build-to-Earn & Analytics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --bg: #050810;
-            --card-bg: #0f172a;
+            --bg: #030712;
+            --glass: rgba(15, 23, 42, 0.8);
+            --border: rgba(56, 189, 248, 0.2);
             --primary: #38bdf8;
-            --accent: #818cf8;
-            --text: #f1f5f9;
+            --accent: #a855f7;
+            --text: #f8fafc;
             --text-dim: #94a3b8;
         }
 
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
             background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.05) 0%, transparent 40%);
             color: var(--text);
             line-height: 1.6;
             margin: 0;
-            padding: 0;
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
 
+        /* Hero Section */
         header {
             text-align: center;
-            margin-bottom: 70px;
+            margin-bottom: 100px;
+            animation: fadeIn 1s ease-out;
         }
 
         h1 {
-            font-size: 3.5rem;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin: 0;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
         }
 
-        .tagline { color: var(--text-dim); font-size: 1.3rem; }
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            margin-top: 20px;
+            max-width: 600px;
+            margin-inline: auto;
+        }
 
-        /* Общие стили секций */
+        /* Glass Cards */
         .section-header {
-            border-left: 5px solid var(--accent);
-            padding-left: 20px;
-            margin-bottom: 40px;
-            margin-top: 80px;
+            margin: 80px 0 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
-        
-        .section-header h2 { color: var(--primary); margin: 0; font-size: 2.2rem; }
 
-        /* Стиль карточек и галерей */
+        .section-header h2 {
+            font-size: 1.8rem;
+            margin: 0;
+            color: var(--primary);
+        }
+
         .card {
-            background: var(--card-bg);
-            border: 1px solid #1e293b;
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 30px;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
-        .screenshot-gallery {
+        /* Screenshot Engine */
+        .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             margin-top: 30px;
         }
 
-        .screenshot-item {
-            background: #000;
-            border-radius: 12px;
+        .screenshot {
+            border-radius: 16px;
             overflow: hidden;
-            border: 1px solid #334155;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            aspect-ratio: 16/9;
         }
 
-        .screenshot-item:hover {
-            transform: scale(1.03);
-            border-color: var(--primary);
-        }
-
-        .screenshot-item img {
+        .screenshot img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
-            opacity: 0.8;
-            transition: opacity 0.3s;
+            filter: grayscale(20%);
         }
-        
-        .screenshot-item:hover img { opacity: 1; }
 
+        .screenshot:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
+
+        .screenshot:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* Buttons */
         .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: var(--bg);
-            padding: 12px 24px;
-            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 12px;
             text-decoration: none;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: opacity 0.2s;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 25px;
         }
 
-        .btn:hover { opacity: 0.9; }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(56, 189, 248, 0.5);
+            filter: brightness(1.1);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(56, 189, 248, 0.1);
+            border-color: var(--primary);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         footer {
             text-align: center;
-            padding: 50px;
+            padding: 60px 20px;
             color: var(--text-dim);
-            border-top: 1px solid #1e293b;
-            margin-top: 100px;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .container { padding: 40px 15px; }
+            .card { padding: 25px; }
+            h1 { font-size: 2.8rem; }
         }
     </style>
 </head>
@@ -121,68 +175,63 @@
 
 <div class="container">
     <header>
-        <h1>🐈‍⬛ BCT Eco Sphere</h1>
-        <p class="tagline">Децентрализованная экосистема будущего на базе TON</p>
+        <h1>BCT Eco Sphere</h1>
+        <p class="tagline">Децентрализованная экосистема будущего на базе блокчейна TON</p>
     </header>
 
-    <div class="section-header">
-        <h2>🪂 BCT Airdrop & Build-to-Earn</h2>
-    </div>
-    <div class="card" style="border: 2px solid var(--accent);">
-        <p>Мы запускаем масштабное распределение токенов <strong>BCT</strong> для активных участников и разработчиков. Помогай развивать экосистему и получай вознаграждение. Ниже показаны этапы нашего Airdrop-процесса.</p>
-        
-        <div class="screenshot-gallery">
-            <div class="screenshot-item">
-                <img src="airdrop.jpg" alt="Airdrop Step 1">
-            </div>
-            <div class="screenshot-item">
-                <img src="airdrop2.jpg" alt="Airdrop Step 2">
-            </div>
-            <div class="screenshot-item">
-                <img src="airdrop3.jpg" alt="Airdrop Step 3">
-            </div>
+    <section>
+        <div class="section-header">
+            <i class="fas fa-parachute-box" style="color: var(--accent); font-size: 1.5rem;"></i>
+            <h2>🪂 BCT Airdrop & Build-to-Earn</h2>
         </div>
-        <div style="text-align: center; margin-top: 30px;">
-            <a href="#" class="btn">Присоединиться к Build-to-Earn</a>
+        <div class="card">
+            <p>Мы запускаем масштабное распределение токенов <strong>BCT</strong> для активных участников и разработчиков. Помогай развивать экосистему и получай вознаграждение. Ниже показаны этапы нашего Airdrop-процесса.</p>
+            
+            <div class="gallery">
+                <div class="screenshot"><img src="airdrop.jpg" alt="Airdrop Step 1"></div>
+                <div class="screenshot"><img src="airdrop2.jpg" alt="Airdrop Step 2"></div>
+                <div class="screenshot"><img src="airdrop3.jpg" alt="Airdrop Step 3"></div>
+            </div>
+            
+            <a href="#" class="btn"><i class="fab fa-telegram-plane"></i> Присоединиться к Build-to-Earn</a>
         </div>
-    </div>
+    </section>
 
-    <div class="section-header">
-        <h2>📊 Deep Analytics Tools</h2>
-    </div>
-    <div class="card">
-        <p>Наши инструменты для многоуровневого системного анализа (AQAL Analyzer). Мы создаем аналитические фреймворки для глубокого понимания пользовательских данных.</p>
-        
-        <div class="screenshot-gallery">
-            <div class="screenshot-item">
-                <img src="anaiz.jpg" alt="Analytics Dashboard">
-            </div>
-            <div class="screenshot-item">
-                <img src="analiz2.jpg" alt="AQAL Model">
-            </div>
-            <div class="screenshot-item">
-                <img src="analiz3.jpg" alt="Data View">
-            </div>
+    <section>
+        <div class="section-header">
+            <i class="fas fa-chart-pie" style="font-size: 1.5rem;"></i>
+            <h2>📊 Deep Analytics Tools</h2>
         </div>
-        <div style="margin-top: 20px;">
-            <a href="https://project-zeta-two-73.vercel.app" class="btn" style="background: transparent; border: 1px solid var(--primary); color: var(--primary);" target="_blank">Открыть AQAL Analyzer</a>
+        <div class="card">
+            <p>Наши инструменты для многоуровневого системного анализа (<strong>AQAL Analyzer</strong>). Мы создаем аналитические фреймворки для глубокого понимания пользовательских данных и интегрального развития.</p>
+            
+            <div class="gallery">
+                <div class="screenshot"><img src="anaiz.jpg" alt="AQAL Dashboard"></div>
+                <div class="screenshot"><img src="analiz2.jpg" alt="Analysis View"></div>
+                <div class="screenshot"><img src="analiz3.jpg" alt="Data Structure"></div>
+            </div>
+            
+            <a href="https://project-zeta-two-73.vercel.app" target="_blank" class="btn btn-secondary">Открыть AQAL Analyzer</a>
         </div>
-    </div>
+    </section>
 
-    <div class="section-header">
-        <h2>💻 Matrix Systems: Productivity Tools</h2>
-    </div>
-    <div class="card">
-        <p>Custom software development. Наш пример софта для заметок и управления информацией в стиле Матрицы. Демонстрация Full-stack возможностей.</p>
-        
-        <div class="screenshot-gallery" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-            <div class="screenshot-item"><img src="matrix.jpg" alt="Matrix Note Main"></div>
-            <div class="screenshot-item"><img src="matrix2.jpg" alt="Matrix View 2"></div>
-            <div class="screenshot-item"><img src="matrix3.jpg" alt="Matrix View 3"></div>
-            <div class="screenshot-item"><img src="matrix4.jpg" alt="Matrix View 4"></div>
-            <div class="screenshot-item"><img src="matrix5.jpg" alt="Matrix View 5"></div>
+    <section>
+        <div class="section-header">
+            <i class="fas fa-code" style="font-size: 1.5rem;"></i>
+            <h2>💻 Matrix Systems: Productivity Tools</h2>
         </div>
-    </div>
+        <div class="card">
+            <p>Custom software development. Наш пример софта для заметок и управления информацией в стиле Матрицы. Демонстрация Full-stack возможностей и нестандартных UI/UX решений.</p>
+            
+            <div class="gallery">
+                <div class="screenshot"><img src="matrix.jpg" alt="Matrix Note"></div>
+                <div class="screenshot"><img src="matrix2.jpg" alt="Matrix Interface"></div>
+                <div class="screenshot"><img src="matrix3.jpg" alt="Matrix Data"></div>
+                <div class="screenshot"><img src="matrix4.jpg" alt="Matrix Settings"></div>
+                <div class="screenshot"><img src="matrix5.jpg" alt="Matrix Logic"></div>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <p>© 2026 BCT Eco Sphere. Built for the TON community.</p>
